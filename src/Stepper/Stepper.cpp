@@ -51,7 +51,7 @@ Stepper::Stepper(int _en_pin, int _step_pin, int _dir_pin, float _max_rpm)
     digitalWrite(dir_pin, LOW);
 }
 
-Stepper::Stepper(int _en_pin, int _step_pin, int _dir_pin, ResolutionSteps, float _max_rpm)
+Stepper::Stepper(int _en_pin, int _step_pin, int _dir_pin, ResolutionSteps _resolution, float _max_rpm)
 {
     planner = new Planner();
     currentAngle = 0;

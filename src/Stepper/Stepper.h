@@ -1,7 +1,6 @@
 #ifndef Stepper_h
 #define Stepper_h
 
-#include "control.h"
 #include "Planner.h"
 
 class Stepper
