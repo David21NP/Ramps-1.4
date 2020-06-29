@@ -2,12 +2,12 @@
 
 Control::Control()
 {
-    set_ts(0.4);
+    set_st(0.4);
 }
 
 Control::Control(float _st)
 {
-    set_ts(_st);
+    set_st(_st);
 }
 
 Control::~Control()
