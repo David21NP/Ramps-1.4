@@ -23,4 +23,11 @@ namespace Ramps_1_4 {
     {
         resolution = res;
     }
+
+    void Stepper::makeStep()
+    {
+        digitalWrite(step_pin, HIGH);
+        delayMicroseconds(2);
+        digitalWrite(step_pin, LOW);
+    }
 }

@@ -1,7 +1,7 @@
 #ifndef Control_h
 #define Control_h
 
-#include <Arduino.h>
+#include "../util/pch.h"
 
 typedef struct Matrix
 {
@@ -93,8 +93,6 @@ typedef struct Matrix
     }
 
 } Matrix_t;
-
-
 
 class Control
 {

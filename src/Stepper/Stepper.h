@@ -1,7 +1,6 @@
 #ifndef Stepper_h
 #define Stepper_h
 
-#include "../util/pch.h"
 #include "control.h"
 
 #define FULL_STEP 1
@@ -23,6 +22,8 @@ namespace Ramps_1_4 {
         int resolution;
 
         bool moving;
+
+        void makeStep();
     public:
         Stepper(int, int, int);
         ~Stepper();
