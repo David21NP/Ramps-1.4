@@ -2,15 +2,7 @@
 #define Stepper_h
 
 #include "control.h"
-
-enum ResolutionSteps : uint8_t
-{
-    FULL_STEP = 1,
-    HALF_STEP = 2,
-    QUARTER_STEP = 4,
-    EIGHTH_STEP = 8,
-    SIXTEENTH_STEP = 16
-};
+#include "Planner.h"
 
 class Stepper
 {
@@ -20,18 +12,25 @@ private:
     int en_pin;
 
     float currentAngle;
+    float max_rpm;
 
     int resolution;
 
     bool moving;
 
     void makeStep();
+
+    Planner* planner;
 public:
-    Stepper(int, int, int);
+    Stepper(int _en_pin, int _step_pin, int _dir_pin);
+    Stepper(int _en_pin, int _step_pin, int _dir_pin, ResolutionSteps);
+    Stepper(int _en_pin, int _step_pin, int _dir_pin, float _max_rpm);
+    Stepper(int _en_pin, int _step_pin, int _dir_pin, ResolutionSteps, float _max_rpm);
     ~Stepper();
     void setResolution(ResolutionSteps);
 
     void move(long steps);
+    void move(float deg);
     bool isMoving();
 };
 
