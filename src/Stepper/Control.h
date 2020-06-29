@@ -97,15 +97,15 @@ typedef struct Matrix
 class Control
 {
 private:
-    float ts;
+    float st;
     float rpm;
 
 public:
     Control();
-    Control(float _ts);
+    Control(float _st);
     ~Control();
-    void set_ts(float);
-    float get_ts();
+    void set_st(float);
+    float get_st();
     void set_rpm(float);
     float get_rpm();
 
