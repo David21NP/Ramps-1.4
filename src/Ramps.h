@@ -3,6 +3,7 @@
 
 #include "./Stepper/Stepper.h"
 #include "./Eeprom/Eeprom.h"
+#include "./Events/Event.h"
 
 class Ramps
 {

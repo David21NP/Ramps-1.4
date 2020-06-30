@@ -27,6 +27,7 @@ public:
     Stepper(int _en_pin, int _step_pin, int _dir_pin, ResolutionSteps, float _max_rpm);
     ~Stepper();
     void setResolution(ResolutionSteps);
+    void setMaxRpm(float _rpm);
 
     void move(long steps);
     void move(float deg);
