@@ -2,50 +2,28 @@
 #define Event_h
 
 #include "../util/pch.h"
-#include <QueueArray.h>
-#include "../Stepper/Stepper.h"
 
 typedef void (*EventHandler)();
-typedef void (Stepper::* s_EventHandler)();
+//typedef void (Stepper::* s_EventHandler)();
 
+
+
+template <typename T, int max_ev>
 class Event
 {
 private:
-    Event() {}
-
-    QueueArray<EventHandler> pendingEvents;
-
-    QueueArray<EventHandler> IGetEvents() { return pendingEvents; }
-
-    QueueArray<s_EventHandler> stepperEvents;
-
-    QueueArray<s_EventHandler> IGetSEvents() { return stepperEvents; }
-
+    T m_event[max_ev];
+    int m_size;
 public:
-    //~Event();
+    Event();
+    ~Event();
 
-    Event(const Event &) = delete;
-    Event& operator=(const Event &) = delete;
-
-    static QueueArray<EventHandler> GetEvents() { return Get().IGetEvents(); }
-
-    static QueueArray<s_EventHandler> GetSEvents() { return Get().IGetSEvents(); }
-
-    static Event &Get()
-    {
-        static Event Instance;
-        return Instance;
-    }
-
-    static void AddEvent(EventHandler ev_handler)
-    {
-        Get().GetEvents().enqueue(ev_handler);
-    }
-
-    static void AddEvent(s_EventHandler ev_handler)
-    {
-        Get().GetSEvents().enqueue(ev_handler);
-    }
+    int GetSize();
+    void AddLast(T ev_handler);
+    void AddAt(T ev_handler, int index);
+    void RemoveLast();
+    void RemoveFirst();
+    void RemoveAt(int index);
 };
 
 #endif

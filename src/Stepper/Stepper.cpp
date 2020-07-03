@@ -1,5 +1,6 @@
 #include "Stepper.h"
-#include "../Events/Event.h"
+
+Event<s_EvHandler, 50> stepperEvents();
 
 Stepper::Stepper(int _en_pin, int _step_pin, int _dir_pin) : en_pin(_en_pin), step_pin(_step_pin), dir_pin(_dir_pin)
 {
@@ -53,7 +54,8 @@ void Stepper::setResolution(ResolutionSteps res)
 
 void Stepper::setMaxRpm(float _rpm)
 {
-    max_rpm = _rpm;
+    if (_rpm < 300)
+        max_rpm = _rpm;
 }
 
 void Stepper::makeStep()
@@ -66,12 +68,16 @@ void Stepper::makeStep()
 void Stepper::move(long steps)
 {
     planner->planMovement((float)steps * (1.8 / resolution), max_rpm, resolution);
-    while (!planner->isPlanned()) { }
-    Event::AddEvent(&Stepper::makeStep);
+    while (!planner->isPlanned())
+    {
+    }
+    //Event::AddEvent(&Stepper::makeStep);
 }
 
 void Stepper::move(float deg)
 {
     planner->planMovement(deg, max_rpm, resolution);
-    while (!planner->isPlanned()) { }
+    while (!planner->isPlanned())
+    {
+    }
 }

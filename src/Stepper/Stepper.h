@@ -2,6 +2,7 @@
 #define Stepper_h
 
 #include "Planner.h"
+#include "../Events/Event.h"
 
 class Stepper
 {
@@ -33,5 +34,7 @@ public:
     void move(float deg);
     bool isMoving();
 };
+
+typedef void (Stepper::* s_EvHandler)();
 
 #endif
