@@ -7,7 +7,7 @@ Stepper::Stepper(int _en_pin, int _step_pin, int _dir_pin) : en_pin(_en_pin), st
     max_rpm = 250;
     resolution = FULL_STEP;
 
-    planner = new Planner();
+    //planner = new Planner();
     currentAngle = 0;
     moving = false;
 
@@ -44,7 +44,7 @@ Stepper::Stepper(int _en_pin, int _step_pin, int _dir_pin, ResolutionSteps _reso
 
 Stepper::~Stepper()
 {
-    delete planner;
+    //delete planner;
 }
 
 void Stepper::setResolution(ResolutionSteps res)
@@ -67,8 +67,8 @@ void Stepper::makeStep()
 
 void Stepper::move(long steps)
 {
-    planner->planMovement((float)steps * (1.8 / resolution), max_rpm, resolution);
-    while (!planner->isPlanned())
+    planner.planMovement((float)steps * (1.8 / resolution), max_rpm, resolution);
+    while (!planner.isPlanned())
     {
     }
     //Event::AddEvent(&Stepper::makeStep);
@@ -76,8 +76,8 @@ void Stepper::move(long steps)
 
 void Stepper::move(float deg)
 {
-    planner->planMovement(deg, max_rpm, resolution);
-    while (!planner->isPlanned())
+    planner.planMovement(deg, max_rpm, resolution);
+    while (!planner.isPlanned())
     {
     }
 }

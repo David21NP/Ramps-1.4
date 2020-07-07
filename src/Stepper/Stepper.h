@@ -20,7 +20,7 @@ private:
 
     void makeStep();
 
-    Planner* planner;
+    Planner planner;
 public:
     Stepper(int _en_pin, int _step_pin, int _dir_pin);
     Stepper(int _en_pin, int _step_pin, int _dir_pin, ResolutionSteps);

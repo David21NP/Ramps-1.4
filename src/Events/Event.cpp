@@ -40,18 +40,19 @@ void Event<T, max_ev>::AddAt(T ev_handler, int index)
 template <typename T, int max_ev>
 void Event<T, max_ev>::RemoveLast()
 {
+    RemoveAt(m_size-1);
 }
 
 template <typename T, int max_ev>
 void Event<T, max_ev>::RemoveFirst()
 {
-    RemoveAt(m_size-1);
+    RemoveAt(0);
 }
 
 template <typename T, int max_ev>
 void Event<T, max_ev>::RemoveAt(int index)
 {
-    if ((index < (m_size)) && (index > 0))
+    if ((index < (m_size)) && (index >= 0))
     {
         m_size--;
         for (int i = index; i < m_size; i++)
