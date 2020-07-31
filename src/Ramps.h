@@ -1,7 +1,8 @@
 #ifndef Ramps_h
 #define Ramps_h
 
-#include "./Stepper/Stepper.h"
+#include "./I2C/I2C_Ramps.h"
+#include "./Stepper/Steppers.h"
 #include "./Eeprom/Eeprom.h"
 #include "./Events/Event.h"
 
