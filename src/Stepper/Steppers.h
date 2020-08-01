@@ -1,12 +1,12 @@
 #ifndef Steppers_h
 #define Steppers_h
 
+#include "../util/pch.h"
+
 #include <A4988.h>
 #include <BasicStepperDriver.h>
 #include <MultiDriver.h>
 #include <SyncDriver.h>
-
-#include "../config/PinsRamps.h"
 
 enum ResolutionSteps : uint8_t
 {
