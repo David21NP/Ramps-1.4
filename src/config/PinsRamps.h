@@ -49,7 +49,6 @@
 #define AUX4_4 47
 #define AUX4_3 32
 
-#define AUX3_6 53
 #define AUX3_2 49
 
 #define AUX2_10 A11
@@ -68,9 +67,10 @@
 #define I2C_SDA 20
 #define I2S_SCL 21
 
-#define MISO 50
-#define MOSI 51
-#define SCK 52
+#define SPI_MISO 50
+#define SPI_MOSI 51
+#define SPI_SCK 52
+#define SPI_SS 53
 
 
 #define E0_EN 24

@@ -15,7 +15,10 @@ Servos_Ramps::Servos_Ramps()
 
 Servos_Ramps::~Servos_Ramps()
 {
-    delete [] Servos;
+    delete Servos[0];
+    delete Servos[1];
+    delete Servos[2];
+    delete Servos[3];
 }
 
 void Servos_Ramps::move(uint8_t servo, uint8_t angle)

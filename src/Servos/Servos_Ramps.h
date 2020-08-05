@@ -7,7 +7,7 @@
 class Servos_Ramps
 {
 private:
-    Servo** Servos;
+    Servo* Servos[4];
 public:
     Servos_Ramps();
     ~Servos_Ramps();
