@@ -18,13 +18,5 @@ public:
     ~EndStops();
 };
 
-EndStops::EndStops()
-{
-}
-
-EndStops::~EndStops()
-{
-}
-
 
 #endif
