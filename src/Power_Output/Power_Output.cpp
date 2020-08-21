@@ -5,6 +5,10 @@ Power_Output::Power_Output()
     outDictionary[0] = POWER_O_1;
     outDictionary[1] = POWER_O_2;
     outDictionary[2] = POWER_O_3;
+
+    pinMode(POWER_O_1, OUTPUT);
+    pinMode(POWER_O_2, OUTPUT);
+    pinMode(POWER_O_3, OUTPUT);
 }
 
 Power_Output::~Power_Output()

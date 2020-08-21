@@ -1,10 +1,12 @@
 #ifndef EndStops_h
 #define EndStops_h
 
-#include "../util/pch.h"
+#include "../../util/pch.h"
 
 #define ES_PU INPUT_PULLUP
 #define ES_NP INPUT
+
+typedef void (*voidFuncPtr);
 
 class EndStops
 {
