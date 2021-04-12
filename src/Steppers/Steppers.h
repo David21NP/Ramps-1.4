@@ -2,6 +2,8 @@
 #define Steppers_h
 
 #include "../util/pch.h"
+#include "EndStops/EndStops.h"
+#include "Stepper/Stepper.h"
 
 #include <A4988.h>
 #include <BasicStepperDriver.h>
@@ -20,31 +22,38 @@ enum ResolutionSteps : uint8_t
 class Steppers
 {
 private:
-    A4988* Motor_x;
-    A4988* Motor_y;
-    A4988* Motor_z;
-
-    A4988* Motor_e0;
-    A4988* Motor_e1;
-
-    SyncDriver* Driver_1;
-    SyncDriver* Driver_2;
+    SyncDriver* Drivers[2];
 
     float currentAngle[5];
     float max_rpm[5];
 
     int resolution[5];
 
-    void makeStep();
+    int pins[3*5];
+
+    int getPin(short, short);
 public:
+    A4988* Motors[5];
+
     Steppers();
     Steppers(const ResolutionSteps*);
     Steppers(const float* _max_rpm);
     Steppers(const ResolutionSteps*, const float* _max_rpm);
     ~Steppers();
 
-    void moveAll(long steps1, long steps2, long steps3, long steps4, long steps5);
-    void moveAll(float deg1, float deg2, float deg3, float deg4, float deg5);
+    void begin();
+
+    void moveAll(const long* steps);
+    void moveAll(const float* degs);
+
+    void moveX(const long& step);
+    void moveX(const float& degs);
+
+    void moveY(const long& step);
+    void moveY(const float& degs);
+
+    void moveZ(const long& step);
+    void moveZ(const float& degs);
 
     bool isMoving();
 };
