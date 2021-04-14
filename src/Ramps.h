@@ -1,3 +1,4 @@
+#ifdef ARDUINO_AVR_MEGA2560
 #ifndef Ramps_h
 #define Ramps_h
 
@@ -15,4 +16,5 @@ public:
     void aver();
 };
 
+#endif
 #endif
