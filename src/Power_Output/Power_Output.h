@@ -6,12 +6,14 @@
 class Power_Output
 {
 private:
-    uint8_t outDictionary[3];
+    uint8_t outputs[3];
 public:
     Power_Output();
     ~Power_Output();
 
-    void setOutputTo(uint8_t out, int value);
+    void begin();
+
+    void setOutputTo(uint8_t out, uint8_t value);
 };
 
 

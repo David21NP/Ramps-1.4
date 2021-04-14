@@ -3,7 +3,6 @@
 
 #include "../util/pch.h"
 #include "EndStops/EndStops.h"
-#include "Stepper/Stepper.h"
 
 #include <A4988.h>
 #include <BasicStepperDriver.h>
@@ -22,7 +21,7 @@ enum ResolutionSteps : uint8_t
 class Steppers
 {
 private:
-    SyncDriver* Drivers[2];
+    SyncDriver* Driver;
 
     float currentAngle[5];
     float max_rpm[5];
@@ -33,7 +32,7 @@ private:
 
     int getPin(short, short);
 public:
-    A4988* Motors[5];
+    BasicStepperDriver* Motors[5];
 
     Steppers();
     Steppers(const ResolutionSteps*);
@@ -41,21 +40,30 @@ public:
     Steppers(const ResolutionSteps*, const float* _max_rpm);
     ~Steppers();
 
+    void setRPM(const float* _max_rpm);
+
     void begin();
 
-    void moveAll(const long* steps);
-    void moveAll(const float* degs);
+    void moveAll(const long& step_x, const long& step_y, const long& step_z, const long& step_e0, const long& step_e1);
+    void rotateAll(const long& degs_x, const long& degs_y, const long& degs_z, const long& degs_e0, const long& degs_e1);
 
     void moveX(const long& step);
-    void moveX(const float& degs);
+    void rotateX(const float& degs);
 
     void moveY(const long& step);
-    void moveY(const float& degs);
+    void rotateY(const float& degs);
 
     void moveZ(const long& step);
-    void moveZ(const float& degs);
+    void rotateZ(const float& degs);
 
-    bool isMoving();
+    void moveXYZ(const long& step_x, const long& step_y, const long& step_z = 0);
+    void rotateXYZ(const float& degs_x, const float& degs_y, const float& degs_z = 0);
+
+    void moveE0(const long& step);
+    void rotateE0(const float& degs);
+
+    void moveE1(const long& step);
+    void rotateE1(const float& degs);
 };
 
 #endif
