@@ -7,13 +7,16 @@
 class Ramps
 {
 private:
-    int val1;
-    int val2;
 public:
-    Ramps(/* args */);
-    Ramps(int, int);
+    Ramps_1_4::Eeprom m_eeprom;
+    Ramps_1_4::I2C_Ramps m_i2c;
+    Ramps_1_4::Power_Output m_pwo;
+    Ramps_1_4::Servos_Ramps m_servos;
+    Ramps_1_4::Steppers m_steppers;
+    Ramps_1_4::Thermistors m_thermistors;
+    Ramps();
     ~Ramps();
-    void aver();
+    void begin();
 };
 
 #endif

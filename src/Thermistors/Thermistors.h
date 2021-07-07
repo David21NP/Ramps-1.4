@@ -3,15 +3,18 @@
 
 #include "../util/pch.h"
 
-class Thermistors
+namespace Ramps_1_4
 {
-private:
-    uint8_t thermPin[3];
-public:
-    Thermistors();
-    ~Thermistors();
+    class Thermistors
+    {
+    private:
+        uint8_t thermPin[3];
+    public:
+        Thermistors();
+        ~Thermistors();
 
-    int getOutputOf(uint8_t therm);
-};
+        int getOutputOf(uint8_t therm);
+    };
+}
 
 #endif

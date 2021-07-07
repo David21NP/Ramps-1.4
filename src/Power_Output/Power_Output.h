@@ -3,18 +3,21 @@
 
 #include "../util/pch.h"
 
-class Power_Output
+namespace Ramps_1_4
 {
-private:
-    uint8_t outputs[3];
-public:
-    Power_Output();
-    ~Power_Output();
+    class Power_Output
+    {
+    private:
+        uint8_t outputs[3];
+    public:
+        Power_Output();
+        ~Power_Output();
 
-    void begin();
+        void begin();
 
-    void setOutputTo(uint8_t out, uint8_t value);
-};
+        void setOutputTo(uint8_t out, uint8_t value);
+    };
+}
 
 
 #endif

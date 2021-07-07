@@ -1,12 +1,8 @@
 #include <Ramps.h>
 
-Ramps ramps(2,4);
-
-Power_Output powpts;
+Ramps ramps;
 
 float rpms[] = {10, 30, 20, 30, 20};
-
-Steppers stps(rpms);
 
 //A4988 mot(200, X_DIR, X_STEP, X_EN);
 
@@ -18,7 +14,7 @@ void setup() {
         ; // wait for serial port to connect. Needed for native USB port only
     }
 
-    stps.begin();
+    ramps.begin();
 
     pinMode(POWER_ON, OUTPUT);
 
@@ -39,7 +35,7 @@ void setup() {
 
     // digitalWrite(POWER_ON, HIGH);
 
-    powpts.setOutputTo(0, 100);
+    ramps.m_pwo.setOutputTo(0, 100);
 
     /* digitalWrite(X_EN, LOW);
     digitalWrite(X_DIR, LOW);

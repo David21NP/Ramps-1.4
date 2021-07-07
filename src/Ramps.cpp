@@ -1,17 +1,19 @@
 #ifdef ARDUINO_AVR_MEGA2560
 #include "Ramps.h"
 
-Ramps::Ramps(/* args */)
+Ramps::Ramps()
 {
-}
-
-Ramps::Ramps(int v1, int v2)
-{
-    val1 = v1;
-    val2 = v2;
 }
 
 Ramps::~Ramps()
 {
 }
+
+void Ramps::begin()
+{
+    m_pwo.begin();
+    m_servos.begin();
+    m_steppers.begin();
+}
+
 #endif
